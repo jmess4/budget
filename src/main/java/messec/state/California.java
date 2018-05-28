@@ -15,7 +15,7 @@ public class California implements Taxer {
 
     // 2017 tax brackets
     private final double[] bracketBreakpoints = {0, 16030, 38002, 59978, 83258, 105224, 537500, 644998, 1000000};
-    private final double[] bracketRates = {.01, .02, .04, .06, .08, .093, .0103, .0113};
+    private final double[] bracketRates = {.01, .02, .04, .06, .08, .093, .103, .113};
     private final double[] bracketTotals = {0, 160.3, 599.74, 1478.78, 2875.58, 4632.86, 44834.53, 55,906.82};
 
     protected California(double grossIncomeOne, double grossIncomeTwo, PreTaxCalculator preTaxCalculator) {

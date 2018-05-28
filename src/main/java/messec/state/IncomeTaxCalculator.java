@@ -15,12 +15,15 @@ public class IncomeTaxCalculator {
     }
 
     public double incomeTaxDue(double taxableIncome) {
-        double taxPayable = 0;
         for (int i = 0; i < this.bracketRates.length; i++) {
-            taxPayable += taxableIncome > this.bracketBreakpoints[i+1] ? 0 :
-                    (taxableIncome - this.bracketBreakpoints[i]) * this.bracketRates[i] + this.bracketTotals[i];
+            if (taxableIncome < bracketBreakpoints[i + 1]) {
+                System.out.println("taxable inc = " + taxableIncome + ", bracket in = " + bracketBreakpoints[i + 1] + ", bracket rate = " + bracketRates[i]);
+                return (taxableIncome - this.bracketBreakpoints[i]) * this.bracketRates[i] + this.bracketTotals[i];
+            }
+//            taxPayable += taxableIncome > this.bracketBreakpoints[i+1] ? 0 :
+//                    (taxableIncome - this.bracketBreakpoints[i]) * this.bracketRates[i] + this.bracketTotals[i];
         }
-        return taxPayable;
+        throw new IllegalStateException("Did not find applicable tax bracket");
     }
 
 }

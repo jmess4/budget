@@ -59,9 +59,10 @@ public class App
         double stateIncomeTax = stateTaxer.incomeTaxDue();
 
         Taxer federalTaxer = Taxers.federalTaxer(p1SemiWeeklyGrossPay, p2SemiWeeklyGrossPay, preTaxCalculator);
+        double federalIncomeTax = federalTaxer.incomeTaxDue();
 
-        double netYearlyPay = semiWeeklyGrossPay * PAY_PERIODS_IN_YEAR - stateTaxer.incomeTaxDue() -
-                federalTaxer.incomeTaxDue() - postTaxCalculator.baseMedicareYearly -
+        double netYearlyPay = semiWeeklyGrossPay * PAY_PERIODS_IN_YEAR - stateIncomeTax -
+                federalIncomeTax - postTaxCalculator.baseMedicareYearly -
                 postTaxCalculator.medicareYearlyAdditional - postTaxCalculator.socialSecurityYearly;
 
         System.out.printf(ALIGNMENT_STRING, "Gross semi-weekly pay", semiWeeklyGrossPay);
@@ -70,7 +71,7 @@ public class App
         System.out.printf(ALIGNMENT_STRING, state + " deduction", stateTaxer.getDeduction());
         System.out.printf(ALIGNMENT_STRING, state + " state income tax", stateIncomeTax);
         System.out.printf(ALIGNMENT_STRING, "Federal deduction", federalTaxer.getDeduction());
-        System.out.printf(ALIGNMENT_STRING, "Federal income tax", federalTaxer.incomeTaxDue());
+        System.out.printf(ALIGNMENT_STRING, "Federal income tax", federalIncomeTax);
         System.out.printf(ALIGNMENT_STRING, "Weekly post-tax costs", postTaxCalculator.weeklyPostTaxCosts());
         System.out.printf(ALIGNMENT_STRING, "Yearly post-tax costs",
                 postTaxCalculator.weeklyPostTaxCosts() * PAY_PERIODS_IN_YEAR);
