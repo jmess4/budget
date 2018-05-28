@@ -5,8 +5,8 @@ import messec.App;
 public class PostTaxCalculator {
     private final static double SOCIAL_SECURITY_TAX_RATE = .062;
     private final static double SOCIAL_SECURITY_CAP = 128700;
-    private final static double MEDICARE_BASE_TAX_RATE = 1.45;
-    private final static double MEDICARE_ADDITIONAL_RATE = 0.9;
+    private final static double MEDICARE_BASE_TAX_RATE = .0145;
+    private final static double MEDICARE_ADDITIONAL_RATE = .009;
     private final static double JOINT_MEDICARE_CUTOFF = 250000;
 
     private final double grossYearlyIncome;
