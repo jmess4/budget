@@ -4,9 +4,9 @@ public interface Taxer {
 
     double getDeduction();
 
-    double getPreTaxDeductionsTotal();
+    double yearlyPretaxDeductions();
 
-    double getTaxableIncome();
+    double taxableIncome();
 
-    double calculateTax();
+    double incomeTaxDue();
 }

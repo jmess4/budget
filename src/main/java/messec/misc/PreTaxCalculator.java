@@ -2,7 +2,7 @@ package messec.misc;
 
 import messec.App;
 
-public class PreTaxDeductor {
+public class PreTaxCalculator {
     double medicalSemiWeekly = Double.parseDouble(App.properties.getProperty("p1.semiweekly.health")) +
             Double.parseDouble(App.properties.getProperty("p2.semiweekly.health"));
     double visionSemiWeekly = Double.parseDouble(App.properties.getProperty("p1.semiweekly.vision")) +
@@ -17,13 +17,13 @@ public class PreTaxDeductor {
             Double.parseDouble(App.properties.getProperty("p1.semiweekly.disability"));
     double retirementSemiWeekly;
 
-    public PreTaxDeductor(double grossOne, double grossTwo) {
+    public PreTaxCalculator(double grossOne, double grossTwo) {
         this.retirementSemiWeekly = Double.parseDouble(App.properties.getProperty("p1.semiweekly.401k")) * .01 *
                 grossOne +
                 Double.parseDouble(App.properties.getProperty("p2.semiweekly.401k")) * .01 * grossTwo;
     }
 
-    public double getSemiWeeklyPreTaxDeductions() {
+    public double semiWeeklyPreTaxDeductions() {
         return (double)(medicalSemiWeekly + visionSemiWeekly + dentalSemiWeekly + fsaSemiWeekly + addSemiWeekly +
                 disabilitySemiWeekly + retirementSemiWeekly);
     }
