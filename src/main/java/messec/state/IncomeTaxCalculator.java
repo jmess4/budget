@@ -17,7 +17,6 @@ public class IncomeTaxCalculator {
     public double incomeTaxDue(double taxableIncome) {
         for (int i = 0; i < this.bracketRates.length; i++) {
             if (taxableIncome < bracketBreakpoints[i + 1]) {
-                System.out.println("taxable inc = " + taxableIncome + ", bracket in = " + bracketBreakpoints[i + 1] + ", bracket rate = " + bracketRates[i]);
                 return (taxableIncome - this.bracketBreakpoints[i]) * this.bracketRates[i] + this.bracketTotals[i];
             }
 //            taxPayable += taxableIncome > this.bracketBreakpoints[i+1] ? 0 :

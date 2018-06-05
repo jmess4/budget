@@ -65,6 +65,9 @@ public class App
                 federalIncomeTax - postTaxCalculator.baseMedicareYearly -
                 postTaxCalculator.medicareYearlyAdditional - postTaxCalculator.socialSecurityYearly;
 
+        double netYearlyProfit = netYearlyPay - stateTaxer.yearlyPretaxDeductions() -
+                postTaxCalculator.weeklyPostTaxCosts() * PAY_PERIODS_IN_YEAR;
+
         System.out.printf(ALIGNMENT_STRING, "Gross semi-weekly pay", semiWeeklyGrossPay);
         System.out.printf(ALIGNMENT_STRING, "Weekly pre-tax deductions", preTaxCalculator.semiWeeklyPreTaxDeductions());
         System.out.printf(ALIGNMENT_STRING, "Yearly pre-tax deductions", stateTaxer.yearlyPretaxDeductions());
@@ -80,6 +83,7 @@ public class App
                 postTaxCalculator.medicareYearlyAdditional);
         System.out.printf(ALIGNMENT_STRING, "Yearly social security tax", postTaxCalculator.socialSecurityYearly);
                 System.out.printf(ALIGNMENT_STRING, "Net yearly pay", netYearlyPay);
+        System.out.printf(ALIGNMENT_STRING, "Net yearly profit", netYearlyProfit);
     }
 
     public static void main(String[] args) {
