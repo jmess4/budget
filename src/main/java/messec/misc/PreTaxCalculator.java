@@ -21,9 +21,9 @@ public class PreTaxCalculator {
     double retirementSemiWeekly;
 
     public PreTaxCalculator(double grossOne, double grossTwo) {
-        this.retirementSemiWeekly = Double.parseDouble(App.properties.getProperty("p1.semiweekly.401k")) * .1 *
+        this.retirementSemiWeekly = Double.parseDouble(App.properties.getProperty("p1.semiweekly.401k")) *
                 grossOne +
-                Double.parseDouble(App.properties.getProperty("p2.semiweekly.401k")) * .1 * grossTwo;
+                Double.parseDouble(App.properties.getProperty("p2.semiweekly.401k")) * grossTwo;
         this.grossOne = grossOne;
         this.grossTwo = grossTwo;
     }
