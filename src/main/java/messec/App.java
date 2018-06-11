@@ -71,7 +71,7 @@ public class App
         double esppValue = preTaxCalculator.esppValue();
 
         System.out.printf(ALIGNMENT_STRING, "Gross semi-weekly pay", semiWeeklyGrossPay);
-        System.out.printf(ALIGNMENT_STRING, "Weekly pre-tax deductions", preTaxCalculator.semiWeeklyPreTaxDeductions());
+        System.out.printf(ALIGNMENT_STRING, "Semi weekly pre-tax deductions", preTaxCalculator.semiWeeklyPreTaxDeductions());
         System.out.printf(ALIGNMENT_STRING, "Yearly pre-tax deductions", stateTaxer.yearlyPretaxDeductions());
         System.out.printf(ALIGNMENT_STRING, state + " deduction", stateTaxer.getDeduction());
         System.out.printf(ALIGNMENT_STRING, state + " state income tax", stateIncomeTax);
